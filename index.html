@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="chatbot_main_div">
+      <h1>ChatBox</h1>
+      <section class="message_section" id="message_section"></section>
+      <div class="input_main_div">
+        <input id="input_field" type="text" placeholder="Type a message" />
+        <img
+          onclick="sendMessage()"
+          src="https://cdn-icons-png.flaticon.com/512/876/876828.png"
+          alt="send_icon"
+        />
+      </div>
+    </main>
+
+    <script defer>
+      let msgText = document.getElementById("input_field");
+      let msgDiv = document.getElementById("message_section");
+
+      function sendMessage() {
+        console.log("Message text is = ", msgText.value);
+        for (let i = 1; i <= 50; i++) {
+          if (i % 2 == 1) {
+            msgDiv.innerHTML += `
+            <div id="user_message_div">
+                ${msgText.value}
+            </div>
+            `;
+          }
+
+          if (i % 2 == 0) {
+            msgDiv.innerHTML += `
+            <div id="chatbot_message_div">
+                ${msgText.value}
+            </div>
+            `;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
